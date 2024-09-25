@@ -27,8 +27,13 @@ SECRET_KEY = '@k0#p3kidu)yaaa3u1hplxz)f@^6xiy384*(+n@@s5x#1bx@m5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['<onlinequiz>.vercel.app', 'localhost', '127.0.0.1']
 
+
+ALLOWED_HOSTS = [
+    'quize-32bajakdt-manishkrs-projects.vercel.app',
+    # other hosts if any
+    'onlinequiz.vercel.app', 'localhost', '127.0.0.1'
+]
 
 # Application definition
 
