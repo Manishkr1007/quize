@@ -1,15 +1,18 @@
 {
-    "builds": [
+    "build": [
       {
         "src": "onlinequiz/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb","runtime": "python3.9" }
+        "config": { "maxLambdaSize": "15mb","runtime": "python3.9" },
+        "env": {
+          "DJANGO_SETTINGS_MODULE": "onlinequiz.settings.production"
+        },
+        "cmd": "pip install -r requirements.txt && python manage.py collectstatic --noinput"
       }
     ],
     "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"onlinequiz/wsgi.py"
-        }
+      { "src": "/static/(.*)", "dest": "/static/$1" },
+        { "src": "/(.*)", "dest": "index.html" }
     ]
 }
+
